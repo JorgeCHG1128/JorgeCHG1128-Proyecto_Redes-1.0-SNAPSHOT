@@ -1,0 +1,153 @@
+-- Crear la base de datos CineNet
+CREATE DATABASE CineNet;
+USE CineNet;
+
+-- Definición de schema País
+CREATE TABLE Pais (
+    ID_Pais INT AUTO_INCREMENT primary key,
+    Nombre_Pais VARCHAR(255)
+);
+
+Insert into Pais (Nombre_Pais)
+values('Costa Rica');
+
+Select * from Pais;
+
+-- Definición de schema Usuarios
+CREATE TABLE Usuarios (
+    ID_Usuario INT AUTO_INCREMENT primary key,
+    Email VARCHAR(255),
+    Password VARCHAR(32) not null,
+    Rol NVARCHAR(50)
+);
+
+DROP TABLE Peliculas;
+
+Insert into Usuarios (Email, Password, Rol)
+values('bporrasviq@gmail.com', MD5('123'), 'Administrador');
+
+Insert into Usuarios (Email, Password, Rol)
+values('bporras@gmail.com', MD5('123'), 'Cliente');
+
+
+Select * from Usuarios;
+
+DELETE FROM Usuarios
+WHERE ID_Usuario IN(17, 18);
+
+-- Definición de schema Peliculas
+CREATE TABLE Peliculas (
+    ID_Pelicula INT AUTO_INCREMENT primary key,
+    Nombre_Pelicula VARCHAR(255),
+    Duracion VARCHAR(50),
+    Genero VARCHAR(80)
+);
+
+Insert into Peliculas (Nombre_Pelicula, Duracion, Genero)
+values('Dune Parte Dos', '166 minutos', 'Principales'),
+('The Batman', '176 minutos', 'Principales'),
+('Spider-Man No Way Home', '148 minutos', 'Principales'),
+('Guason', '122 minutos', 'Principales'),
+('Nightmare On Elm Street', '91 minutos', 'Terror'),
+('La Masacre De Texas', '83 minutos', 'Terror'),
+('Night Of The Living Dead', '96 minutos', 'Terror'),
+('Viernes 13', '95 minutos', 'Terror'),
+('Hangover', '100 minutos', 'Comedia'),
+('Superbad', '119 minutos', 'Comedia'),
+('Ted 2', '116 minutos', 'Comedia'),
+('Deadpool 2', '120 minutos', 'Comedia'),
+('Avatar The Way Of Water', '192 minutos', 'Accion'),
+('Avengers End Game', '182 minutos', 'Accion'),
+('Jurassic World Dominion', '124 minutos', 'Accion'),
+('Piratas Del Caribe La Maldición Del Perla Negra', '143 minutos', 'Accion');
+
+select * from Peliculas;
+
+DELETE FROM Peliculas
+WHERE ID_Pelicula IN(17);
+
+DROP TABLE Peliculas;
+
+
+-- Definición de schema Sede
+CREATE TABLE Sede (
+    ID_Sede INT AUTO_INCREMENT primary key,
+    Nombre_Sede VARCHAR(255),
+    Direccion VARCHAR(1000),
+    ID_Pais INT,
+    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID_Pais)
+);
+
+Insert into Sede (Nombre_Sede, Direccion, ID_Pais)
+values('CineNet Grecia', 'Plaza Grecia El Ingenio', 1);
+
+Select * from Sede;
+
+DROP TABLE Sede;
+
+-- Definición de schema Salas
+CREATE TABLE Salas (
+    ID_Sala INT AUTO_INCREMENT primary key,
+    Numero_Sala VARCHAR(50),
+    Capacidad INT,
+    Tipo_Sala VARCHAR(20),
+    ID_Sede INT,
+    FOREIGN KEY (ID_Sede) REFERENCES Sede(ID_Sede)
+);
+
+Insert into Salas (Numero_Sala, Capacidad, Tipo_Sala, ID_Sede)
+values('Sala 1', 280, '2D', 1),
+('Sala 2', 280, '2D', 1),
+('Sala 3', 280, '2D Y 3D', 1),
+('Sala 4', 280, '2D Y 3D', 1);
+
+Select * from Salas;
+
+DROP TABLE Salas;
+
+
+-- Definición de schema Productos
+CREATE TABLE Productos (
+    ID_Producto INT AUTO_INCREMENT primary key,
+    Nombre_Producto VARCHAR(255),
+    Descripcion VARCHAR(1000),
+    Precio DECIMAL(10,2),
+    Stock INT
+);
+
+Insert into Productos (Nombre_Producto, Descripcion, Precio, Stock)
+values('Combo Hot Dog', 'Combo de un hot dog, un refresco y dos palomitas', 7000, 150),
+('Combo Dual', 'Dos refrescos, dos palomitas, unas palomitas de queso, un hot dog y unos nachos', 15000, 150),
+('Combo de Nachos', 'Un refresco, dos palomitas y nachos grandes', 7500, 150),
+('Palomitas', 'Palomitas saladas, mixtas, caramelo, queso o mantequilla', 3000, 150),
+('Refresco', 'Diferentes tipos de refresco', 2000, 300),
+('Agua', 'Agua embotellada', 1000, 300),
+('Hot Dog', 'Hot dog sencillo', 4000, 150),
+('Nachos', 'Nachos con salsas', 4500, 150);
+
+Select * from Productos;
+
+DELETE FROM Productos
+WHERE ID_Producto IN(9);
+
+
+-- Definición de schema Facturación
+CREATE TABLE Facturación (
+    ID INT AUTO_INCREMENT primary key,
+    ID_Usuario INT,
+    Fecha_Hora DATETIME,
+    Detalle VARCHAR(1000),
+    IVA DECIMAL(5,2),
+    Total_Pagar DECIMAL(10,2),
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(ID_Usuario)
+);
+
+
+
+
+
+
+
+
+
+
