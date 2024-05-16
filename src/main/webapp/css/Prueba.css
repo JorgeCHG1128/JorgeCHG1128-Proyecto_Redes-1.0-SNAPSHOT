@@ -1,0 +1,60 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 mar. 2024, 09:48:11
+    Author     : bporr
+*/
+
+/* Agrega tus estilos personalizados en el archivo Style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.action_btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    text-decoration: none;
+}
+
+.card {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.tickets {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.tickets button {
+    margin: 0 5px;
+}

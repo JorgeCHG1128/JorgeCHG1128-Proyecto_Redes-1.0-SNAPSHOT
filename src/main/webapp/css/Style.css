@@ -1,0 +1,512 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 mar. 2024, 09:48:48
+    Author     : bporr
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #191c29;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(61, 218, 239);
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:hover {
+    color: rgb(245, 241, 240);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('ruta/de/tu/imagen.jpg');
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* ... (Otros estilos) ... */
+
+/* Otros estilos */
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn {
+    color: rgb(6, 220, 236);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn {
+    background-color: rgb(6, 153, 232);
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action_btn:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.action_btn:active {
+    transform: scale(0.75);
+}
+
+/* DropDown Menu */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(191, 32, 32, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 300px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .navbar .links,
+    .navbar .action_btn {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+/* Hero */
+section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(247, 246, 245);
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    color: #fff;
+    font-size: 300;
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
+
+.containerlocation{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    margin-top: 100px;
+
+}
+
+
+/*galeria*/
+:root {
+    --cover-timing: 0.5s;
+    --cover-ease: cubic-bezier(0.66, 0.08, 0.19, 0.97);
+    --cover-stagger: 0.15s;
+    --text-timing: .75s;
+    --text-stagger: 0.015s;
+    --text-ease: cubic-bezier(0.38, 0.26, 0.05, 1.07);
+    --title-stagger: 0.05s;
+    --highlight: white;
+}
+.gallery-container {
+    margin-top: -300px;/* Ajusta el valor según sea necesario */
+    display: flex;
+    align-items: center;
+    margin-left: -70px;
+    margin-right: 300px;
+    margin-bottom: 500px;
+
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 9/12;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    box-shadow: rgba(255, 255, 255, 0.3) 0 5vw 6vw -8vw, rgba(255, 255, 255, 0) 0 4.5vw 5vw -6vw, rgba(50, 50, 80, 0.5) 0px 4vw 8vw -2vw, rgba(0, 0, 0, 0.8) 0px 4vw 5vw -3vw;
+    transition: box-shadow 1s var(--cover-ease);
+    margin-right: 5px; /* Espaciado entre las cards (puedes ajustar el valor según sea necesario) */
+    margin-top: 50px;
+    top: 310px;
+    left: 200px;
+
+}
+
+.card > * {
+    z-index: 2;
+}
+.card > img {
+    z-index: 0;
+    transition: all 0.8s cubic-bezier(0.66, 0.08, 0.19, 0.97);
+}
+.card::before, .card::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all var(--cover-timing) var(--cover-ease);
+    z-index: 1;
+}
+.card::after {
+    transition-delay: var(--cover-stagger);
+    top: 50%;
+}
+.card:hover, .card:focus {
+    box-shadow: white 0 5vw 6vw -9vw, var(--highlight) 0 5.5vw 5vw -7.5vw, rgba(50, 50, 80, 0.5) 0px 4vw 8vw -2vw, rgba(0, 0, 0, 0.8) 0px 4vw 5vw -3vw;
+}
+.card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+    transform: scaleX(1);
+}
+.card:hover h2 .char, .card:hover p .word, .card:focus h2 .char, .card:focus p .word {
+    opacity: 1;
+    transform: translateY(0);
+    color: inherit;
+}
+.card:hover h2 .char, .card:focus h2 .char {
+    transition-delay: calc(0.1s + var(--char-index) * var(--title-stagger));
+}
+.card:hover p .word, .card:focus p .word {
+    transition-delay: calc(0.1s + var(--word-index) * var(--text-stagger));
+}
+.card:hover img, .card:focus img {
+    transform: scale(1.1);
+}
+.card:nth-of-type(1) {
+    --highlight: coral;
+}
+.card:nth-of-type(2) {
+    --highlight: #56ffe5;
+}
+
+.text {
+    position: absolute;
+    inset: 20px;
+    top: auto;
+}
+
+h2 {
+    font-size: 30px;
+    font-size: clamp(20px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 0.2em;
+}
+
+p {
+    color: rgb(5, 231, 252);
+    font-size: 30px;
+    font-size: clamp(10px, 1.25vw, 14px);
+    line-height: 1.4;
+    text-align: justify;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+h2 .char,
+p .word {
+    color: var(--highlight);
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    transform: translateY(40px);
+    transition-property: transform, opacity, color;
+    transition-timing-function: var(--text-ease);
+    transition-duration: var(--text-timing), var(--text-timing), calc(var(--text-timing)*2);
+}
+
+img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+
+.card {
+    width: 90vw;
+    max-width: 300px;
+}
+
+h1 {
+    color: #5b6377;
+    font-weight: 100;
+}
+
+@media screen and (min-width: 76800px) {
+    .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Organiza las cards en grupos de tres con espacio entre ellas */
+
+    }
+
+    .card {
+        width: calc(200% - 110px); /* Ajusta el ancho de las cards en pantallas más grandes */
+        margin-bottom: 30px; /* Espacio entre las filas */
+
+    }
+    h1.card {
+        grid-column: 1/3;
+    }
+}
+
+/*----------------------- titulos entre galery-------------------------------------------**/
+
+.title-container {
+    color: #19daca; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 20px 0; /* Espaciado interno superior e inferior */
+    margin-top: 100px;
+}
+
+.title-container h1 {
+    font-size: 4rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+
+
+.title-container2 {
+    color: #19daca; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 20px 0; /* Espaciado interno superior e inferior */
+    margin-top: -150px;
+}
+
+.title-container2 h1 {
+    font-size: 4rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+
+
+/*---------------------------botones de acceso rapido---------------------**/
+
+
+.accesorapido{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ajusta el z-index según sea necesario */
+
+}
+
+.quick-access-btn {
+    background-color: #fafbfb;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px; /* Espaciado entre botones */
+
+}
+
+.quick-access-btn.hidden {
+    background-color: #eef1f5;
+}
+
+/* Estilo básico para los puntos */
+.cd-dot {
+    display: inline-block;
+    width: 10px; /* Tamaño del punto */
+    height: 10px; /* Tamaño del punto */
+    background-color: rgb(252, 254, 254); /* Color del punto */
+    border-radius: 50%; /* Hace que el punto sea redondo */
+    margin-right: 5px; /* Espacio entre el punto y el texto */
+}
+
+/* Estilo para el nombre que aparece al colocar el mouse sobre el punto */
+.cd-label {
+    display: none; /* El nombre estará oculto por defecto */
+    position: absolute; /* Coloca el nombre sobre el punto */
+    top: -20px; /* Distancia desde arriba */
+    left: -100px; /* Distancia desde la izquierda */
+    padding: 5px; /* Espaciado alrededor del texto */
+    background-color: #09ddfd; /* Color de fondo del nombre */
+    color: #000000; /* Color del texto */
+    border-radius: 5px; /* Hace que el fondo del nombre sea redondeado */
+}
+
+/* Mostrar el nombre cuando el mouse está sobre el punto */
+.cd-dot:hover + .cd-label {
+    display: inline-block;
+}
+
+
+
+
+
+
+
+/*-----------------------------log in-------------------------------**/
+
+.login-container {
+    background-color: #060505;
+    width: 350px;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.login-header {
+    margin-bottom: 20px;
+}
+
+.login-header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+.login-header h2 {
+    color: #09e4fc;
+    margin-top: 10px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    margin-top: 10px;
+    color: #acc2c57a;
+    position: relative;
+
+}
+
+input {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border: 7px solid #053f4f;
+    border-radius: 3px;
+}
+
+.Proceso-Log a{
+    display: flexbox;
+    position: relative;
+}
+
+.boton-transparente {
+    background-color: transparent;
+    border: none;
+    color: #09e4fc;
+    padding: 0; /* Ajusta el relleno según tus preferencias */
+}
+

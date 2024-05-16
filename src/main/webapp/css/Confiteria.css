@@ -1,0 +1,392 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 mar. 2024, 09:47:29
+    Author     : bporr
+*/
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #fff;
+    margin-top: 20px;
+}
+
+.combo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.combo img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.textP {
+    flex: 1;
+    text-align: left;
+}
+
+/* Estilos para los botones de cantidad */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    background-color: #0056b3; /* Celeste */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.quantity-controls button:hover {
+    background-color: #003366; /* Celeste oscuro */
+}
+
+.quantity {
+    margin: 0 10px;
+}
+
+/* Estilos para los botones de regresar y finalizar compra */
+.card-bodyB {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.continue-link button {
+    background-color: #0056b3; /* Celeste */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.continue-link button:hover {
+    background-color: #003366; /* Celeste oscuro */
+}
+
+/* Estilos para el timeline */
+.timeline-menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    
+}
+
+.timeline-container {
+    position: relative;
+    margin-bottom: 5px; /* Espacio adicional debajo del timeline */
+
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;      
+    align-items: stretch;
+    position: relative;
+    top: 100%;
+}
+
+.point {
+    width: 30px;
+    height: 30px;
+    background-color: #0056b3; /* Celeste */
+    border-radius: 50%;
+    margin: 0 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.point:hover {
+    background-color: #003366; /* Celeste oscuro */
+}
+
+.line {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 1px;
+    background-color: #0056b3; /* Celeste */
+    z-index: -1;
+    top: 141%;
+}
+
+.point-names {
+    display: flex;
+    justify-content: space-between;
+    color: #09d6fa;
+    font-size: 20px;
+    margin-top: 10px;
+    position: relative;
+    top: 80px; /* Ajuste para colocarlo debajo de la línea de tiempo */
+    right: 270px; 
+}
+
+.point-names span {
+    flex: 3;
+}
+
+/* Estilos específicos para cada sección */
+.section {
+    margin-top: 50px; /* Espacio entre cada sección */
+}
+
+
+/* Estilos para la pantalla y el mapa de asientos */
+.seating-plan {
+    text-align: center;
+    margin-top: 50px; /* Espacio entre el timeline y la sección de asientos */
+}
+
+.screen-image img {
+    width: 100%;
+    max-width: 400px; /* Tamaño máximo de la imagen de la pantalla */
+    margin-bottom: 20px;
+}
+
+.seating-map {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.seating-map .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.seating-map .row .seat {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.seating-map .row .seat-number {
+    display: inline-flex;
+    align-items: center;
+}
+
+.seating-map .row .seat-icon {
+    margin-right: 5px;
+}
+
+.legend {
+    background-color: #000000; /* Fondo negro */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.legend-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-row p {
+    margin: 0;
+    color: #fff;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+body {
+    height: 100vh;
+    background: #191c29;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+ 
+a {
+    text-decoration: none;
+    color: rgb(61, 218, 239);
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:hover {
+    color: rgb(245, 241, 240);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('ruta/de/tu/imagen.jpg');
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* ... (Otros estilos) ... */
+
+/* Otros estilos */
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn {
+    color: rgb(6, 220, 236);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn {
+    background-color: rgb(6, 153, 232);
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+.action_btn:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.action_btn:active {
+    transform: scale(0.75);
+}
+
+/* DropDown Menu */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(191, 32, 32, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 300px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .navbar .links,
+    .navbar .action_btn {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+/* Hero */
+section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(247, 246, 245);
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    color: #fff;
+    font-size: 300;
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}

@@ -1,0 +1,780 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 5 abr. 2024, 13:15:16
+    Author     : bporr
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: #191c29;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+ 
+a {
+    text-decoration: none;
+    color: rgb(61, 218, 239);
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:hover {
+    color: rgb(245, 241, 240);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    background-image: url('ruta/de/tu/imagen.jpg');
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+/* ... (Otros estilos) ... */
+
+/* Otros estilos */
+.navbar {
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn {
+    color: rgb(6, 220, 236);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.action_btn {
+    background-color: rgb(6, 153, 232);
+    color: black;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.action_btn:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.action_btn:active {
+    transform: scale(0.75);
+}
+
+/* DropDown Menu */
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(191, 32, 32, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 300px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .navbar .links,
+    .navbar .action_btn {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+/* Hero */
+section#hero {
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgb(247, 246, 245);
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#hero p {
+    color: #fff;
+    font-size: larger;
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
+
+
+
+
+/*galeria*/
+:root {
+    --cover-timing: 0.5s;
+    --cover-ease: cubic-bezier(0.66, 0.08, 0.19, 0.97);
+    --cover-stagger: 0.15s;
+    --text-timing: .75s;
+    --text-stagger: 0.015s;
+    --text-ease: cubic-bezier(0.38, 0.26, 0.05, 1.07);
+    --title-stagger: 0.05s;
+    --highlight: white;
+  }
+  .gallery-container {
+  margin-top: -300px;/* Ajusta el valor según sea necesario */
+  display: flex; 
+  align-items: center;
+  margin-left: -70px;
+  margin-right: 300px;
+  margin-bottom: 500px;
+  
+}
+  
+  .card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 9/12;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    box-shadow: rgba(255, 255, 255, 0.3) 0 5vw 6vw -8vw, rgba(255, 255, 255, 0) 0 4.5vw 5vw -6vw, rgba(50, 50, 80, 0.5) 0px 4vw 8vw -2vw, rgba(0, 0, 0, 0.8) 0px 4vw 5vw -3vw;
+    transition: box-shadow 1s var(--cover-ease);
+    margin-right: 5px; /* Espaciado entre las cards (puedes ajustar el valor según sea necesario) */
+    margin-top: 50px;
+    top: 310px;
+    left: 200px; 
+}
+
+  .card > * {
+    z-index: 2;
+  }
+  .card > img {
+    z-index: 0;
+    transition: all 0.8s cubic-bezier(0.66, 0.08, 0.19, 0.97);
+  }
+  .card::before, .card::after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: all var(--cover-timing) var(--cover-ease);
+    z-index: 1;
+  }
+  .card::after {
+    transition-delay: var(--cover-stagger);
+    top: 50%;
+  }
+  .card:hover, .card:focus {
+    box-shadow: white 0 5vw 6vw -9vw, var(--highlight) 0 5.5vw 5vw -7.5vw, rgba(50, 50, 80, 0.5) 0px 4vw 8vw -2vw, rgba(0, 0, 0, 0.8) 0px 4vw 5vw -3vw;
+  }
+  .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
+    transform: scaleX(1);
+  }
+  .card:hover h2 .char, .card:hover p .word, .card:focus h2 .char, .card:focus p .word {
+    opacity: 1;
+    transform: translateY(0);
+    color: inherit;
+  }
+  .card:hover h2 .char, .card:focus h2 .char {
+    transition-delay: calc(0.1s + var(--char-index) * var(--title-stagger));
+  }
+  .card:hover p .word, .card:focus p .word {
+    transition-delay: calc(0.1s + var(--word-index) * var(--text-stagger));
+  }
+  .card:hover img, .card:focus img {
+    transform: scale(1.1);
+  }
+  .card:nth-of-type(1) {
+    --highlight: coral;
+  }
+  .card:nth-of-type(2) {
+    --highlight: #56ffe5;
+  }
+  
+  .text {
+    position: absolute;
+    inset: 20px;
+    top: auto;
+  }
+  
+  h2 {
+    font-size: 30px;
+    font-size: clamp(20px, 4vw, 40px);
+    font-weight: 800;
+    margin-bottom: 0.2em;
+  }
+  
+  p {
+    font-size: 12px;
+    font-size: clamp(10px, 1.25vw, 14px);
+    line-height: 1.4;
+    text-align: justify;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+  }
+  
+  h2 .char,
+  p .word {
+    color: var(--highlight);
+    display: inline-block;
+    opacity: 0;
+    position: relative;
+    transform: translateY(40px);
+    transition-property: transform, opacity, color;
+    transition-timing-function: var(--text-ease);
+    transition-duration: var(--text-timing), var(--text-timing), calc(var(--text-timing)*2);
+  }
+  
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 7px;
+  }
+  
+
+  .card {
+    width: 90vw;
+    max-width: 300px;
+  }
+  
+  h1 {
+    color: #5b6377;
+    font-weight: 100;
+  }
+
+  @media screen and (min-width: 76800px) {
+    .gallery-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Organiza las cards en grupos de tres con espacio entre ellas */
+        
+      }
+
+    .card {
+        width: calc(200% - 110px); /* Ajusta el ancho de las cards en pantallas más grandes */
+        margin-bottom: 30px; /* Espacio entre las filas */
+
+      }
+    h1.card {
+      grid-column: 1/3;
+    }
+}
+    
+  /*----------------------- titulos entre galery-------------------------------------------**/
+  
+.title-container {
+  color: #19daca; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  padding: 20px 0; /* Espaciado interno superior e inferior */
+  margin-top: 100px;
+}
+
+.title-container h1 {
+  font-size: 4rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+}
+
+
+ 
+.title-container2 {
+  color: #19daca; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+  padding: 20px 0; /* Espaciado interno superior e inferior */
+  margin-top: -150px;
+}
+
+.title-container2 h1 {
+  font-size: 4rem; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+}
+
+/*---------------------------botones de acceso rapido---------------------**/
+
+
+.accesorapido {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ajusta el z-index según sea necesario */
+}
+
+.quick-access-btn {
+  background-color: #129bcd;
+  color: #000000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px; /* Espaciado entre botones */
+}
+
+.quick-access-btn:hover {
+  background-color: #1070d0;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+/*-----------------------------log in-------------------------------**/
+
+
+
+
+
+/*-----------------------------Entradas y Confiteria-------------------------------**/
+.cardE {
+  background-color: rgb(69, 104, 134);
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.imgAcom {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos del contenedor */
+  align-items: center; /* Alinea verticalmente los elementos en el centro */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+  width: 20px; /* Ancho específico de la imagen */
+  height: 20px; /* Altura específica de la imagen */
+}
+
+.imgAcom img {
+  margin-left: 5px; /* Más margen al lado izquierdo de la imagen */
+  width: 100%; /* Utiliza todo el espacio disponible */
+  height: auto; /* Altura automática para mantener la proporción de la imagen */
+}
+
+.imgAcom p {
+  margin-left: 30px; /* Espacio entre la imagen y el texto */
+  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+.ticketsE {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.ticketsE button {
+  margin: 0 5px;
+}
+
+.times-container {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  margin-top: 10px; /* Añadido para espacio */
+}
+
+.time-option {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 20px; /* Espaciado entre los horarios */
+}
+
+.time-option.active {
+  background-color: #787a7b;
+  color: #fff;
+}
+
+.options-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.option {
+  width: 50px; 
+  height: 30px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 10px; /* Espacio entre las opciones */
+}
+
+
+/*Botones de incrementar, decrementar y continuar*/
+
+.continue-btn {
+  background-color: rgb(61, 218, 239);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn {
+  background-color: rgb(83, 84, 84);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.continue-btn:hover {
+  background-color: #007bff; /* Cambia el color al pasar el cursor sobre el botón */
+}
+
+.back-btn:hover {
+  background-color: #232323; /* Cambia el color al pasar el cursor sobre el botón */
+}
+
+.card-bodyB {
+  text-align: center; /* Centra el contenido del cuerpo de la tarjeta */
+}
+
+.movie-image {
+  max-width: 100%; /* Ajustar imagen al ancho del div */
+  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+  width: 30px;
+  height: 30px;
+}
+
+.ticket-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 0;
+    margin: 0 5px;
+    background-color: rgb(61, 218, 239); /* Cambiar color */
+}
+
+.ticket-count {
+    width: 60px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ticket-btn i {
+    margin-top: 3px;
+    color: #191c29; /* Ajustar color del ícono */
+}
+
+
+/*Menú tipo linea del tiempo*/
+
+.timeline-menu {
+  position: relative;
+  margin-top: 20px;
+}
+
+.timeline-container {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.point {
+  width: 20px;
+  height: 20px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: relative;
+  display: block;
+}
+
+.point:not(:last-child) {
+  margin-right: 100px; /* Ajustar el espacio entre puntos */
+}
+
+.point:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.line {
+  height: 4px;
+  background-color: #007bff;
+  width: calc(100% - 40px); /* Ajustar la longitud de la línea */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px; /* Ajustar la posición de la línea */
+}
+
+.point-names {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.point-names span {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  margin: 0 80px; /* Ajusta el espacio horizontal entre los nombres de los puntos */
+}
+
+/*Estilos de los asientos*/
+
+.screen-image {
+  text-align: center;
+  margin-top: 5px; /* Ajusta el margen superior según sea necesario */
+}
+
+.screen-image img {
+  display: block; /* Para centrar la imagen horizontalmente */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  max-width: 50%;
+  height: auto;
+  margin-top: 160px;
+}
+
+.seating-plan {
+  text-align: center;
+}
+
+.seating-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: grey;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.seat.disabled {
+  background-color: rgb(43, 0, 255); /* Color para asientos de discapacitados */
+}
+
+.seat.selected {
+  background-color: #0b9d3e;
+}
+
+.legend {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #191c29;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 170px;
+  border: 2px solid #000;
+}
+
+/*Alimentos y Bebidas*/
+.combos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.combo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ccc; /* Línea separadora entre combos */
+}
+
+.imgAcomC {
+  position: relative;
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos del contenedor */
+  align-items: center; /* Alinea verticalmente los elementos en el centro */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+  width: 100px; /* Ancho específico de la imagen */
+  height: 100px; /* Altura específica de la imagen */
+}
+
+.imgAcomC img {
+  margin-left: 0px; /* Más margen al lado izquierdo de la imagen */
+  width: 100%; /* Utiliza todo el espacio disponible */
+  height: auto; /* Altura automática para mantener la proporción de la imagen */
+}
+
+.imgAcomC p {
+  margin-left: 200px; /* Espacio entre la imagen y el texto */
+  /*white-space: nowrap;  Evitar que el texto se divida en varias líneas */
+  color: white;
+}
+
+.textP{
+  color: white;
+}
+
+.texto-con-margen_I {
+  padding-left: 17px; /* Margen interno al lado izquierdo */
+  /* o */
+  margin-left: 17px; /* Margen externo al lado izquierdo */
+}
+
+.combo img {
+  max-width: 100px;
+  height: auto;
+  margin-right: 20px; /* Espacio entre la imagen y el contenido del combo */
+}
+
+.combo-info {
+  flex-grow: 1; /* Permite que el contenido del combo ocupe todo el espacio disponible */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.quantity-controls button {
+  margin: 0 5px; /* Espacio entre los botones */
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
